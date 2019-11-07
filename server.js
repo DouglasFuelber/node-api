@@ -12,17 +12,7 @@ mongoose.connect(
 );
 requireDir('./src/models');
 
-const Product = mongoose.model('Product');
-
-// Route definition
-app.get('/', (req, res) => {
-    Product.create({
-        title: "React Native",
-        description: "Build native apps with React",
-        url: "http://github.com/facebok/react-native"
-    });
-
-    res.send('Hello Douglas');
-});
+// Routes
+app.use('/api', require('./src/routes'));
 
 app.listen(3001);
